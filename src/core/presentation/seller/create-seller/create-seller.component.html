@@ -1,0 +1,194 @@
+<div class="seller-register">
+  <div class="seller-register__top">
+    <h1>Registro de Vendedor</h1>
+    <div class="seller-register__top--buttons">
+      <button nz-button>SALIR</button>
+      <button nz-button>GUARDAR</button>
+    </div>
+  </div>
+  <nz-card>
+    <form [formGroup]="sellerFormGroup">
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item>
+            <nz-form-label style="text-align: left" [nzMd]="8">Nombre</nz-form-label>
+            <nz-form-control>
+              <input formControlName="nameSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="2"></div>
+        <div nz-col [nzMd]="9">
+          <nz-form-item>
+            <nz-form-label style="text-align: left" [nzXs]="24" [nzMd]="10">Código</nz-form-label>
+            <nz-form-control [nzMd]="14" [nzXs]="24">
+              <input formControlName="codeSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Apellido</nz-form-label>
+            <nz-form-control [nzMd]="10">
+              <input formControlName="lastNameSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="2"></div>
+        <div nz-col [nzMd]="9">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="10">Fecha de Ingreso</nz-form-label>
+            <nz-form-control [nzMd]="14">
+              <nz-date-picker
+                formControlName="entryDateSellerFormControl"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Tipo de Documento</nz-form-label>
+            <nz-form-control [nzMd]="10">
+              <nz-select formControlName="documentTypeSellerFormControl">
+                <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
+                <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
+                <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="2"></div>
+        <div nz-col [nzMd]="9">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="10">N° de Documento</nz-form-label>
+            <nz-form-control [nzMd]="14">
+              <input formControlName="documentNumberSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Fecha de Nacimiento</nz-form-label>
+            <nz-form-control [nzMd]="10">
+              <nz-date-picker
+                formControlName="birthdaySellerFormControl"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="8">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="12">Departamento</nz-form-label>
+            <nz-form-control [nzMd]="12">
+              <nz-select formControlName="departmentSellerFormControl">
+                <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
+                <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
+                <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="1"></div>
+        <div nz-col [nzMd]="7">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Provincia</nz-form-label>
+            <nz-form-control [nzMd]="14">
+              <nz-select formControlName="provinceSellerFormControl">
+                <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
+                <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
+                <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="1"></div>
+        <div nz-col [nzMd]="7">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Distrito</nz-form-label>
+            <nz-form-control [nzMd]="14">
+              <nz-select formControlName="districtSellerFormControl">
+                <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
+                <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
+                <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Dirección</nz-form-label>
+            <nz-form-control [nzMd]="10">
+              <input formControlName="addressSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Telefono</nz-form-label>
+            <nz-form-control [nzMd]="10">
+              <input formControlName="telephoneSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="12">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Correo</nz-form-label>
+            <nz-form-control>
+              <input formControlName="emailSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzMd]="8">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="12">Usuario</nz-form-label>
+            <nz-form-control [nzMd]="12">
+              <input formControlName="usernameSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="1"></div>
+        <div nz-col [nzMd]="7">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="8">Contraseña</nz-form-label>
+            <nz-form-control [nzMd]="12">
+              <input formControlName="passwordSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzMd]="1"></div>
+        <div nz-col [nzMd]="7">
+          <nz-form-item >
+            <nz-form-label style="text-align: left" [nzMd]="12">Validar Contraseña</nz-form-label>
+            <nz-form-control [nzMd]="12">
+              <input formControlName="validPasswordSellerFormControl"
+                     type="text" nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </nz-card>
+</div>

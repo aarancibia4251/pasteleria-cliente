@@ -1,0 +1,10 @@
+<div nz-row style="width: 100%">
+  <div nz-col [nzMd]="2" [nzXs]="0" ></div>
+  <div nz-col [nzMd]="20" [nzXs]="24">
+    <h1>{{title}}</h1>
+    <ng-content select="[Filters]"></ng-content>
+    <ng-content select="[Buttons]"></ng-content>
+    <ng-content select="[Content]"></ng-content>
+  </div>
+  <div nz-col [nzMd]="2" [nzXs]="0"></div>
+</div>

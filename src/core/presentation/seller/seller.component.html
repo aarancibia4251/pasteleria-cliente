@@ -1,0 +1,55 @@
+<app-consult nz-row [title]="'Bandeja de Listado de Vendedores'">
+  <ng-container Filters>
+    <nz-card>
+      <form [formGroup]="sellerFormGroup">
+        <nz-form-item>
+          <nz-form-label style="text-align: left" [nzMd]="4">Nombre</nz-form-label>
+          <nz-form-control [nzMd]="10">
+            <input formControlName="nameFormControl"
+                   (keyup.enter)="searchSeller($event, 'name')"
+                   (ngModelChange)="getNameInput($event)" type="text" nz-input>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item >
+          <nz-form-label style="text-align: left" [nzMd]="4">N° de Documento</nz-form-label>
+          <nz-form-control [nzMd]="10">
+            <input formControlName="nroDocFormControl"
+                   (keyup.enter)="searchSeller($event, 'nroDoc')"
+                   (ngModelChange)="getNroDocInput($event)" type="text" nz-input>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+  </ng-container>
+  <ng-container Buttons>
+    <div nz-row class="mt-1 mb-1" [nzType]="'flex'" [nzJustify]="'end'">
+      <button nz-button nzType="primary">Filtrar</button>
+      <button nz-button nzType="primary" class="ml-1">Limpiar</button>
+      <a nz-button routerLink="crear" nzType="primary" class="ml-1">Nuevo</a>
+    </div>
+  </ng-container>
+  <ng-container Content>
+    <nz-table #basicTable [nzData]="listOfData" [nzFrontPagination]="false">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let seller of basicTable.data">
+        <td>{{ seller.idSeller }}</td>
+        <td>{{ seller.nameSeller }}</td>
+        <td>{{ seller.documentSeller }}</td>
+        <td>
+          <a (click)="goToEdit(seller.idSeller)">Editar</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </ng-container>
+</app-consult>
