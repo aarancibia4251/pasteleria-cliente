@@ -1,41 +1,31 @@
-<div class="seller-register">
-  <div class="seller-register__top">
-    <h1>Registro de Vendedor</h1>
-    <div class="seller-register__top--buttons">
+<div class="customer-register">
+  <div class="customer-register__top">
+    <h1>Registro de Cliente</h1>
+    <div class="customer-register__top--buttons">
       <button nz-button nzType="default" (click)="goToList()">SALIR</button>
-      <button nz-button nzType="primary" class="ml-1" (click)="saveSeller()">GUARDAR</button>
+      <button nz-button nzType="primary" class="ml-1" (click)="saveCustomer()">GUARDAR</button>
     </div>
   </div>
   <nz-card>
-    <form [formGroup]="sellerFormGroup">
+    <form [formGroup]="customerFormGroup">
       <div nz-row>
         <div nz-col [nzMd]="12">
           <nz-form-item>
             <nz-form-label style="text-align: left" [nzMd]="8">Nombre</nz-form-label>
-            <nz-form-control [nzValidateStatus]="nameSellerFormControl?.errors?.status"
-                             [nzErrorTip]="nameControl">
-              <input formControlName="nameSellerFormControl"
+            <nz-form-control >
+              <input formControlName="nameCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
-            <ng-template #nameControl>
-              <app-validation-error [control]="nameSellerFormControl"></app-validation-error>
-            </ng-template>
           </nz-form-item>
         </div>
         <div nz-col [nzMd]="2"></div>
         <div nz-col [nzMd]="9">
           <nz-form-item>
             <nz-form-label style="text-align: left" [nzXs]="24" [nzMd]="10">Código</nz-form-label>
-            <nz-form-control [nzMd]="14"
-                             [nzValidateStatus]="codeSellerFormControl?.errors?.status"
-                             [nzErrorTip]="codeControl"
-                             [nzXs]="24">
-              <input formControlName="codeSellerFormControl"
+            <nz-form-control [nzMd]="14" [nzXs]="24">
+              <input formControlName="codeCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
-            <ng-template #codeControl>
-              <app-validation-error [control]="codeSellerFormControl"></app-validation-error>
-            </ng-template>
           </nz-form-item>
         </div>
       </div>
@@ -43,34 +33,20 @@
         <div nz-col [nzMd]="12">
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Apellido</nz-form-label>
-            <nz-form-control [nzValidateStatus]="lastNameSellerFormControl?.errors?.status"
-                             [nzErrorTip]="lastNameControl"
-                             [nzMd]="10">
-              <input formControlName="lastNameSellerFormControl"
+            <nz-form-control [nzMd]="10">
+              <input formControlName="lastNameCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
-            <ng-template #lastNameControl>
-              <app-validation-error [control]="lastNameSellerFormControl"></app-validation-error>
-            </ng-template>
           </nz-form-item>
         </div>
         <div nz-col [nzMd]="2"></div>
-        <div nz-col [nzMd]="9">
-          <nz-form-item >
-            <nz-form-label style="text-align: left" [nzMd]="10">Fecha de Ingreso</nz-form-label>
-            <nz-form-control [nzMd]="14">
-              <nz-date-picker
-                formControlName="entryDateSellerFormControl"></nz-date-picker>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
       </div>
       <div nz-row>
         <div nz-col [nzMd]="12">
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Tipo de Documento</nz-form-label>
             <nz-form-control [nzMd]="10">
-              <nz-select formControlName="documentTypeSellerFormControl">
+              <nz-select formControlName="documentTypeCustomerFormControl">
                 <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
                 <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
                 <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
@@ -83,7 +59,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="10">N° de Documento</nz-form-label>
             <nz-form-control [nzMd]="14">
-              <input formControlName="documentNumberSellerFormControl"
+              <input formControlName="documentNumberCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
           </nz-form-item>
@@ -95,7 +71,7 @@
             <nz-form-label style="text-align: left" [nzMd]="8">Fecha de Nacimiento</nz-form-label>
             <nz-form-control [nzMd]="10">
               <nz-date-picker
-                formControlName="birthdaySellerFormControl"></nz-date-picker>
+                formControlName="birthdayCustomerFormControl"></nz-date-picker>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -105,7 +81,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="12">Departamento</nz-form-label>
             <nz-form-control [nzMd]="12">
-              <nz-select formControlName="departmentSellerFormControl">
+              <nz-select formControlName="departmentCustomerFormControl">
                 <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
                 <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
                 <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
@@ -118,7 +94,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Provincia</nz-form-label>
             <nz-form-control [nzMd]="14">
-              <nz-select formControlName="provinceSellerFormControl">
+              <nz-select formControlName="provinceCustomerFormControl">
                 <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
                 <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
                 <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
@@ -131,7 +107,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Distrito</nz-form-label>
             <nz-form-control [nzMd]="14">
-              <nz-select formControlName="districtSellerFormControl">
+              <nz-select formControlName="districtCustomerFormControl">
                 <nz-option nzValue="DNI" nzLabel="DNI"></nz-option>
                 <nz-option nzValue="C.E" nzLabel="C.E"></nz-option>
                 <nz-option nzValue="PASAPORTE" nzLabel="PASAPORTE"></nz-option>
@@ -145,7 +121,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Dirección</nz-form-label>
             <nz-form-control>
-              <input formControlName="addressSellerFormControl"
+              <input formControlName="addressCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
           </nz-form-item>
@@ -156,7 +132,7 @@
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Telefono</nz-form-label>
             <nz-form-control [nzMd]="10">
-              <input formControlName="telephoneSellerFormControl"
+              <input formControlName="telephoneCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
           </nz-form-item>
@@ -166,47 +142,10 @@
         <div nz-col [nzMd]="12">
           <nz-form-item >
             <nz-form-label style="text-align: left" [nzMd]="8">Correo</nz-form-label>
-            <nz-form-control [nzValidateStatus]="emailSellerFormControl?.errors?.status"
-                             [nzErrorTip]="emailControl">
-              <input formControlName="emailSellerFormControl"
+            <nz-form-control>
+              <input formControlName="emailCustomerFormControl"
                      type="text" nz-input>
             </nz-form-control>
-            <ng-template #emailControl>
-              <app-validation-error [control]="emailSellerFormControl"></app-validation-error>
-            </ng-template>
-          </nz-form-item>
-        </div>
-      </div>
-      <div nz-row>
-        <div nz-col [nzMd]="8">
-          <nz-form-item >
-            <nz-form-label style="text-align: left" [nzMd]="12">Usuario</nz-form-label>
-            <nz-form-control [nzMd]="12">
-              <input formControlName="usernameSellerFormControl"
-                     type="text" nz-input>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzMd]="1"></div>
-        <div nz-col [nzMd]="7">
-          <nz-form-item >
-            <nz-form-label style="text-align: left" [nzMd]="8">Contraseña</nz-form-label>
-            <nz-form-control [nzMd]="12">
-              <input formControlName="passwordSellerFormControl"
-                     type="password" nz-input>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzMd]="1"></div>
-        <div nz-col [nzMd]="7">
-          <nz-form-item >
-            <nz-form-label style="text-align: left" [nzMd]="12">Validar Contraseña</nz-form-label>
-            <nz-form-control [nzValidateStatus]="validPasswordSellerFormControl?.errors?.status"
-                             [nzErrorTip]="validPasswordSellerFormControl?.errors?.confirm" [nzMd]="12">
-              <input formControlName="validPasswordSellerFormControl"
-                     type="password" nz-input>
-            </nz-form-control>
-
           </nz-form-item>
         </div>
       </div>

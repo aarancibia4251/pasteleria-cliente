@@ -1,36 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {Seller} from '../../domain/model/seller';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {LoadingService} from '../../../commons/services/loading/loading.service';
 import {Router} from '@angular/router';
 import {Strings} from '../../../commons/utils/Strings';
-import {SellerController} from '../../domain/controller/seller.controller';
 
 @Component({
-  selector: 'app-seller',
-  templateUrl: './seller.component.html',
-  styleUrls: ['./seller.component.css']
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.scss']
 })
-export class SellerComponent implements OnInit {
-  title = Strings.SELLER.TITLE;
-  listOfData: Array<Seller> = [
-    {
-      idSeller: '43534534534',
-      documentSeller:'32423432',
-      nameSeller: 'dfsdfsdfsd'
-    }
-  ];
-  sellerFormGroup: FormGroup;
+export class CustomerComponent implements OnInit {
+  title = Strings.CUSTOMER.TITLE;
+  customerFormGroup: FormGroup;
   nameFormControl: FormControl;
   nroDocFormControl: FormControl;
+  customers;
   constructor(
     private fb: FormBuilder,
     private loadingSrv: LoadingService,
     private router: Router,
-    private sellerCtrl: SellerController,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createForm();
   }
 
@@ -50,28 +41,16 @@ export class SellerComponent implements OnInit {
     }
   }
 
-  searchSeller(value, type) {
+  searchCustomer(value, type) {
     console.log(value, type);
-  }
-
-  goToEdit(idSeller: string) {
-    this.router.navigateByUrl(`seller/editar/${idSeller}`);
-  }
-
-  cleanFields() {
-    this.nameFormControl.setValue('');
-    this.nroDocFormControl.setValue('');
-    this.getNameInput('');
-    this.getNroDocInput('');
   }
 
   private createForm() {
     this.nameFormControl = new FormControl(null);
     this.nroDocFormControl = new FormControl(null);
-    this.sellerFormGroup = this.fb.group({
+    this.customerFormGroup = this.fb.group({
       nameFormControl: this.nameFormControl,
       nroDocFormControl: this.nroDocFormControl
     });
   }
-
 }

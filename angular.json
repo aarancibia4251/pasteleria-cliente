@@ -127,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "pasteleria-cliente"
+  "defaultProject": "pasteleria-cliente",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -1,0 +1,3 @@
+<ng-container *ngIf="(control.dirty && control.touched) && control?.errors?.required">Este campo es Requerido</ng-container>
+<ng-container *ngIf="(control.dirty && control.touched) && control?.errors?.email">Este campo no es un email</ng-container>
+<ng-container *ngIf="(control.dirty && control.touched) && control?.errors?.confirm">Contraseñas no son iguales</ng-container>
